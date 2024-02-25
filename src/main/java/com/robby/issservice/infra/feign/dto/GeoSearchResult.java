@@ -1,17 +1,15 @@
-package com.robby.issservice.rest.dto;
+package com.robby.issservice.infra.feign.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class LandmarkDto {
+public class GeoSearchResult {
     private String title;
-    private Double longitude;
-    private Double latitude;
+    private double lat;
+    private double lon;
     private String country;
 }

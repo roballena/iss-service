@@ -20,19 +20,23 @@ public class IssServiceImpl implements IssService {
     private final LandmarkService landmarkService;
 
     @Override
-    public List<Landmark> getLandmarksAtCurrentLocation() {
-
+    public Coordinates getCurrentLocation() {
         log.info("Fetching ISS current location");
 
         Coordinates currentLocation = issLocationService.getCurrentLocation();
 
         log.info("ISS current location: {}", currentLocation);
 
-        log.info("Fetching landmarks base on current location");
+        return currentLocation;
+    }
 
-        List<Landmark> landmarks = landmarkService.getLandmarks(currentLocation);
+    @Override
+    public List<Landmark> getLandmarks(Coordinates coordinates) {
+        log.info("Fetching nearest landmarks base on coordinates: {}", coordinates);
 
-        log.info("Landmarks at current location: {}", landmarks);
+        List<Landmark> landmarks = landmarkService.getLandmarks(coordinates);
+
+        log.info("Landmarks at coordinates: {}", landmarks);
 
         return landmarks;
     }
