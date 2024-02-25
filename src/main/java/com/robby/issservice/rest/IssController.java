@@ -1,9 +1,10 @@
 package com.robby.issservice.rest;
 
-import com.robby.issservice.core.LandmarkService;
+import com.robby.issservice.core.IssService;
 import com.robby.issservice.core.model.Landmark;
 import com.robby.issservice.rest.dto.LandmarkDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,16 +15,19 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("landmarks")
+@RequestMapping("iss")
 @RequiredArgsConstructor
-public class LandmarkController {
+@Slf4j
+public class IssController {
 
-    private final LandmarkService landmarkService;
+    private final IssService issService;
 
-    @GetMapping("/at/current")
-    public ResponseEntity<Map<String, List<LandmarkDto>>> getPlacesAtCurrentLocation() {
+    @GetMapping("/landmarks")
+    public ResponseEntity<Map<String, List<LandmarkDto>>> getLandmarksAtCurrentLocation() {
 
-        List<Landmark> placesAtCurrentLocation = landmarkService.getLandmarksAtCurrentLocation();
+        log.info("Received request for getLandmarksAtCurrentLocation");
+
+        List<Landmark> placesAtCurrentLocation = issService.getLandmarksAtCurrentLocation();
 
         return ResponseEntity.ok(Collections.singletonMap("results",
                 placesAtCurrentLocation.stream().map(place -> LandmarkDto.builder()
