@@ -39,10 +39,6 @@ jib {
 	to {
 		image = project.name
 		tags = [project.version, 'latest']
-		auth {
-			username = 'roballena'
-			password = 'dckr_pat_08jisQuPkw-9b-xOEKt2_y6AtWI'
-		}
 	}
 	container {
 		creationTime = 'USE_CURRENT_TIMESTAMP'
