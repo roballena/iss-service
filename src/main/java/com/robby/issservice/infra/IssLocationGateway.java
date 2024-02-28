@@ -23,4 +23,6 @@ public class IssLocationGateway implements IssLocationService {
                 .longitude(currentLocation.getIssPosition().getLongitude())
                 .build();
     }
+
+    //todo cover getCurrentLocation using WireMock to mock issNow response
 }

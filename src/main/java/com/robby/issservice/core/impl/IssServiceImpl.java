@@ -24,6 +24,7 @@ public class IssServiceImpl implements IssService {
         log.info("Fetching ISS current location");
 
         Coordinates currentLocation = issLocationService.getCurrentLocation();
+        //todo handle exception from getCurrentLocation
 
         log.info("ISS current location: {}", currentLocation);
 
@@ -35,6 +36,7 @@ public class IssServiceImpl implements IssService {
         log.info("Fetching nearest landmarks base on coordinates: {}", coordinates);
 
         List<Landmark> landmarks = landmarkService.getLandmarks(coordinates);
+        //todo handle exception from getLandmarks
 
         log.info("Landmarks at coordinates: {}", landmarks);
 

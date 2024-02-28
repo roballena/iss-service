@@ -38,4 +38,6 @@ public class LandmarkGateway implements LandmarkService {
                         .build())
                 .toList();
     }
+
+    //todo cover getLandmarks using WireMock to mock queryMediaWiki response
 }
