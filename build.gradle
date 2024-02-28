@@ -37,7 +37,7 @@ jib {
 		image = 'openjdk:17-jdk-slim'
 	}
 	to {
-		image = project.name
+		image = "docker.io/roballena/${project.name}"
 		tags = [project.version, 'latest']
 	}
 	container {
