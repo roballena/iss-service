@@ -1,6 +1,6 @@
 version: '3.8'
 services:
   service:
-    image: iss-service:latest
+    image: roballena/iss-service:latest
     ports:
       - '8080:8080'
